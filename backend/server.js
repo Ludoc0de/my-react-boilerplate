@@ -1,7 +1,13 @@
 const express = require("express");
+const colors = require("colors");
+const websiteRoutes = require("./routes/websiteRoutes");
 const dotenv = require("dotenv").config();
 const { errorHandler } = require("./middleware/errorMiddleware");
-const websiteRoutes = require("./routes/websiteRoutes");
+const connectDB = require("./config/database");
+
+//Connect to Mongo with Mongoose
+connectDB();
+
 const app = express();
 
 //set middleware
