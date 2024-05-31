@@ -5,7 +5,7 @@ const {
   postWebsite,
   updateWebsite,
   deleteWebsite,
-} = require("../controllers/webController");
+} = require("../controllers/websiteController");
 const router = express.Router();
 
 router.get("/", getWebsite);
