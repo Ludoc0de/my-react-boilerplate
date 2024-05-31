@@ -1,5 +1,6 @@
 // asyncHandler to use errorHandler and avoid try/catch
 const asyncHandler = require("express-async-handler");
+const Website = require("../models/websiteModel");
 
 // Get website
 // Route GET /api/web
