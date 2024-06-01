@@ -1,6 +1,7 @@
 const express = require("express");
 const colors = require("colors");
 const websiteRoutes = require("./routes/websiteRoutes");
+const userRoutes = require("./routes/userRoutes");
 const dotenv = require("dotenv").config();
 const { errorHandler } = require("./middleware/errorMiddleware");
 const connectDB = require("./config/database");
@@ -16,6 +17,7 @@ app.use(express.urlencoded({ extended: false }));
 
 //Set Routes
 app.use("/api/web", websiteRoutes);
+app.use("/api/users", userRoutes);
 
 //to overwrite default express error
 app.use(errorHandler);
