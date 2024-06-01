@@ -38,7 +38,7 @@ const createUser = asyncHandler(async (req, res) => {
     res.status(201).json({
       _id: user.id,
       email: user.email,
-      // token: generateToken(user._id),
+      token: generateToken(user._id),
     });
   } else {
     res.status(400);
@@ -58,7 +58,7 @@ const loginUser = asyncHandler(async (req, res) => {
     res.json({
       _id: user.id,
       email: user.email,
-      // token: generateToken(user._id),
+      token: generateToken(user._id),
     });
   } else {
     res.status(400);
@@ -104,6 +104,13 @@ const deleteUser = asyncHandler(async (req, res) => {
   await user.deleteOne();
   res.status(200).json({ id: req.params.id });
 });
+
+// Generate JWT
+const generateToken = (id) => {
+  return jwt.sign({ id }, process.env.JWT_SECRET, {
+    expiresIn: "7d",
+  });
+};
 
 module.exports = {
   createUser,
