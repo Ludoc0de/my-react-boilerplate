@@ -8,12 +8,11 @@ const {
   updateUser,
   deleteUser,
 } = require("../controllers/userController");
-// const userController = require("../controllers/userController");
-// const { protect } = require("../middleware/authMiddleware");
+const { protect } = require("../middleware/authMiddleware");
 
 router.post("/", createUser);
 router.post("/login", loginUser);
-router.get("/", getUser);
+router.get("/user", protect, getUser);
 router.put("/:id", updateUser);
 router.delete("/:id", deleteUser);
 
