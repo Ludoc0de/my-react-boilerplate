@@ -70,11 +70,7 @@ const loginUser = asyncHandler(async (req, res) => {
 // Route GET /api/users/user
 // Aces Private
 const getUser = asyncHandler(async (req, res) => {
-  const { _id, email } = await User.findById(req.user.id);
-  res.status(200).json({
-    id: _id,
-    email,
-  });
+  res.status(200).json(req.user);
 });
 
 // Update user
