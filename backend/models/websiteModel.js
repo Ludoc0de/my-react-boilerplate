@@ -19,4 +19,4 @@ const websiteSchema = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("website", websiteSchema);
+module.exports = mongoose.model("Website", websiteSchema);
