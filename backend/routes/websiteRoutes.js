@@ -7,10 +7,11 @@ const {
   updateWebsite,
   deleteWebsite,
 } = require("../controllers/websiteController");
+const { protect } = require("../middleware/authMiddleware");
 
-router.get("/", getWebsite);
-router.post("/", postWebsite);
-router.put("/:id", updateWebsite);
-router.delete("/:id", deleteWebsite);
+router.get("/", protect, getWebsite);
+router.post("/", protect, postWebsite);
+router.put("/:id", protect, updateWebsite);
+router.delete("/:id", protect, deleteWebsite);
 
 module.exports = router;
