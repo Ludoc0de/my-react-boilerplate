@@ -9,7 +9,7 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/users/user")
+      .get("http://localhost:5000/api/web")
       .then((response) => {
         setWebsite(response);
         setLoading(false);
