@@ -15,6 +15,9 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+// Middleware for handling CORS POLICY
+app.use(cors());
+
 //Set Routes
 app.use("/api/web", websiteRoutes);
 app.use("/api/users", userRoutes);
