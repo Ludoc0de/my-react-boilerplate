@@ -9,7 +9,8 @@ const {
 } = require("../controllers/websiteController");
 const { protect } = require("../middleware/authMiddleware");
 
-router.get("/", protect, getWebsite);
+// router.get("/", protect, getWebsite);
+router.get("/", getWebsite);
 router.post("/", protect, postWebsite);
 router.put("/:id", protect, updateWebsite);
 router.delete("/:id", protect, deleteWebsite);
