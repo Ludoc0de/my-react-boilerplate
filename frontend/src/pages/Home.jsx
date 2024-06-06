@@ -1,17 +1,18 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Spinner from "../components/Spinner";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 const Home = () => {
   const [website, setWebsite] = useState([]);
+  console.log(website);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/web")
+      .get("http://localhost:5000/api/web/")
       .then((response) => {
-        setWebsite(response);
+        setWebsite(response.data);
         setLoading(false);
       })
       .catch((error) => {
@@ -19,12 +20,10 @@ const Home = () => {
       });
   }, []);
 
-  console.log(website);
-
   return (
     <div>
       <div>Home</div>
-      {loading ? (
+      {/* {loading ? (
         <Spinner />
       ) : (
         <div>
@@ -32,7 +31,7 @@ const Home = () => {
             <p key={web._id}>{web.text}</p>
           ))}
         </div>
-      )}
+      )} */}
     </div>
   );
 };
