@@ -7,7 +7,6 @@ const Website = require("../models/websiteModel");
 // Aces Public
 const getWebsite = asyncHandler(async (req, res) => {
   const website = await Website.find({ user: req.user.id });
-
   res.status(200).json(website);
 });
 
