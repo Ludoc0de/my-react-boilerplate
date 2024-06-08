@@ -13,8 +13,9 @@ const Home = () => {
     <div className="grid">
       <div>Home</div>
       <Link to="/login">Login</Link>
-      <button onClick={handleLogout}>Logout</button>
+      <Link to="/register">register</Link>
       <Link to="/websites">Websites</Link>
+      <button onClick={handleLogout}>Logout</button>
     </div>
   );
 };
