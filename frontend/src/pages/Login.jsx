@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Login = () => {
@@ -10,6 +10,7 @@ const Login = () => {
   });
 
   const { email, password } = formData;
+  const navigate = useNavigate();
 
   //get input value
   const onChange = (e) => {
@@ -25,9 +26,9 @@ const Login = () => {
       const response = await axios.post(API_URL + "login", userData);
       if (response.data) {
         localStorage.setItem("user", JSON.stringify(response.data));
+        navigate("/");
       }
-      console.log(response.data);
-      // return response.data;
+      return response.data;
     } catch (error) {
       console.error(error);
     }
