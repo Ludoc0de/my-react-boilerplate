@@ -12,8 +12,8 @@ const Home = () => {
   return (
     <div className="grid">
       <div>Home</div>
-      <Link to="/login">Login</Link>
       <Link to="/register">register</Link>
+      <Link to="/login">Login</Link>
       <Link to="/websites">Websites</Link>
       <button onClick={handleLogout}>Logout</button>
     </div>

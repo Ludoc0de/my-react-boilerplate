@@ -24,9 +24,10 @@ const Websites = () => {
   }
 
   return (
-    <div>
+    <div className="grid">
       <div>Websites</div>
       <Link to="/">home</Link>
+      <Link to="/createWebsite">créer</Link>
       <div>
         {website.map((web) => (
           <p key={web._id}>{web.text}</p>
