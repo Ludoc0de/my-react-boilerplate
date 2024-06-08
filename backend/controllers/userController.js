@@ -36,8 +36,6 @@ const createUser = asyncHandler(async (req, res) => {
   //check if user created
   if (user) {
     res.status(201).json({
-      _id: user.id,
-      email: user.email,
       token: generateToken(user._id),
     });
   } else {
