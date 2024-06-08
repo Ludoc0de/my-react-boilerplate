@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
+import authService from "../features/authService";
 
 const Login = () => {
-  const API_URL = "http://localhost:5000/api/users/";
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -20,28 +19,19 @@ const Login = () => {
     }));
   };
 
-  // Login user
-  const login = async (userData) => {
-    try {
-      const response = await axios.post(API_URL + "login", userData);
-      if (response.data) {
-        localStorage.setItem("user", JSON.stringify(response.data));
-        navigate("/");
-      }
-      return response.data;
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
 
     const userData = {
       email,
       password,
     };
-    login(userData);
+    try {
+      await authService.login(userData);
+      navigate("/");
+    } catch (error) {
+      console.error("Login failed:", error);
+    }
   };
 
   return (
