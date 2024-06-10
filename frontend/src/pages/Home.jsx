@@ -15,6 +15,7 @@ const Home = () => {
       <Link to="/register">register</Link>
       <Link to="/login">Login</Link>
       <Link to="/websites">Websites</Link>
+      <Link to="/price">Price</Link>
       <button onClick={handleLogout}>Logout</button>
     </div>
   );
