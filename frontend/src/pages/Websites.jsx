@@ -28,10 +28,12 @@ const Websites = () => {
       <div>Websites</div>
       <Link to="/">home</Link>
       <Link to="/createWebsite">créer</Link>
-      <Link to="/updateWebsite/:id">Mise à jour</Link>
       <div>
         {website.map((web) => (
-          <p key={web._id}>{web.text}</p>
+          <div key={web._id}>
+            <p>{web.text}</p>
+            <Link to={`/updateWebsite/${web._id}`}>Mise à jour</Link>
+          </div>
         ))}
       </div>
     </div>
