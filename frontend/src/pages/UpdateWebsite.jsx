@@ -74,6 +74,10 @@ const UpdateWebsite = () => {
     }
   };
 
+  if (loading) {
+    return <Spinner />;
+  }
+
   return (
     <section className="bg-base-200 rounded-xl prose lg:prose-xl max-w-lg mx-auto">
       <h3 className="pl-2">Mise à jour du site</h3>
