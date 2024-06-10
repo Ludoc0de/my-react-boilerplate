@@ -47,14 +47,14 @@ const deleteWebsite = async (id, token) => {
 };
 
 // Update Website
-const updateWebsite = async (id, profileData, token) => {
+const updateWebsite = async (id, website, token) => {
   try {
     const config = {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     };
-    const response = await axios.put(API_URL + id, profileData, config);
+    const response = await axios.put(API_URL + id, website, config);
     return response.data;
   } catch (error) {
     console.error(error);
