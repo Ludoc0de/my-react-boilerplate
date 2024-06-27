@@ -1,5 +1,5 @@
 {
-  "name": "my-boilerplate",
+  "name": "defisc-sattis",
   "version": "1.0.0",
   "description": "starting project with react stripe node ",
   "main": "server.js",
